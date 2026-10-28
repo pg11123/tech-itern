@@ -1,3 +1,5 @@
+USE angry_rogue
+
 CREATE TABLE Uzytkownicy (
     uzytkownik_id INT AUTO_INCREMENT PRIMARY KEY,
     nazwa VARCHAR(16) NOT NULL UNIQUE,
