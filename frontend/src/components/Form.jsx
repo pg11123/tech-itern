@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
+import { Eye, EyeOff } from "lucide-react";
 
 export default function Form() {
   const isRegister = useLocation().pathname === "/register";
@@ -10,6 +11,8 @@ export default function Form() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const [showPassword, setShowPassword] = useState(false);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -47,8 +50,8 @@ export default function Form() {
   }
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-slate-950 px-4 text-white">
-      <section className="w-full max-w-md rounded-2xl border border-white/10 bg-slate-900 p-8 shadow-2xl">
+    <main className="page">
+      <section className="panel">
         <h1 className="mb-2 text-center text-3xl font-bold">
           {isRegister ? "Stwórz konto" : "Witaj ponownie"}
         </h1>
@@ -98,24 +101,33 @@ export default function Form() {
             >
               Hasło
             </label>
+            <div className="relative">
+              <input
+                id="password"
+                type={showPassword ? "text" : "password"}
+                autoComplete={isRegister ? "new-password" : "current-password"}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                minLength={isRegister ? 8 : undefined}
+                required
+                className="w-full rounded-lg border border-slate-700 bg-slate-950 px-4 py-3 outline-none focus:border-violet-500"
+                placeholder="Wpisz hasło"
+              />
 
-            <input
-              id="password"
-              type="password"
-              autoComplete={isRegister ? "new-password" : "current-password"}
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              minLength={isRegister ? 8 : undefined}
-              required
-              className="w-full rounded-lg border border-slate-700 bg-slate-950 px-4 py-3 outline-none focus:border-violet-500"
-              placeholder="Wpisz hasło"
-            />
+              <button
+
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-amber-500">
+                {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+              </button>
+            </div>
           </div>
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-lg bg-violet-600 px-4 py-3 font-bold transition hover:bg-violet-500 disabled:opacity-50"
+            className="btn btn-primary"
           >
             {loading
               ? "Chwileczkę..."
