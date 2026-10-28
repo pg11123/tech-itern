@@ -1,2 +1,262 @@
-@import "tailwindcss"
+@import "tailwindcss";
+
+
+/* ========================================
+   ANGRY ROGUE — GLOBAL THEME
+======================================== */
+
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  color: #e7e5e4;
+  background: #090a0e;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --color-bg: #090a0e;
+  --color-surface: #101015;
+  --color-surface-hover: #18181f;
+
+  --color-text: #e7e5e4;
+  --color-text-muted: #78716c;
+
+  --color-primary: #b91c1c;
+  --color-primary-hover: #991b1b;
+
+  --color-accent: #f59e0b;
+  --color-success: #16a34a;
+  --color-success-hover: #10b981;
+
+  --color-border: rgb(255 255 255 / 10%);
+  --color-border-strong: #44403c;
+
+  --radius-default: 0.375rem;
+  --transition-default: 200ms ease;
+}
+
+/* ========================================
+   RESET & BASE
+======================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+::selection {
+  color: #fff;
+  background: var(--color-primary);
+}
+
+/* ========================================
+   TYPOGRAPHY
+======================================== */
+
+.heading-display {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.1;
+}
+
+.text-accent {
+  color: var(--color-accent);
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+/* ========================================
+   LAYOUT
+======================================== */
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: var(--color-bg);
+}
+
+.panel {
+  width: 100%;
+  max-width: 28rem;
+  padding: 2rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-default);
+  background: var(--color-surface);
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 50%);
+}
+
+.panel-header {
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+/* ========================================
+   BUTTONS
+======================================== */
+
+.btn {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.25rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-default);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-align: center;
+  text-transform: uppercase;
+  transition:
+    background-color var(--transition-default),
+    border-color var(--transition-default),
+    color var(--transition-default),
+    transform var(--transition-default);
+}
+
+.btn:active {
+  transform: scale(0.99);
+}
+
+.btn-primary {
+  border-color: rgb(34 197 94 / 60%);
+  background: var(--color-success);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--color-success-hover);
+}
+
+.btn-secondary {
+  border-color: var(--color-border-strong);
+  background: transparent;
+  color: var(--color-text);
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.btn-danger {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background: var(--color-primary-hover);
+}
+
+/* ========================================
+   FORMS
+======================================== */
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-default);
+  background: var(--color-bg);
+  color: var(--color-text);
+  transition: border-color var(--transition-default);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--color-text-muted);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--color-accent);
+  outline: none;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--color-text);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* ========================================
+   HELPERS
+======================================== */
+
+.eyebrow {
+  margin-bottom: 1rem;
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+}
+
+.panel-footer {
+  margin-top: 2rem;
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  line-height: 1.5rem;
+  text-align: center;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (max-width: 480px) {
+  .panel {
+    padding: 1.5rem;
+  }
+
+  .heading-display {
+    font-size: 2.5rem;
+  }
+}
 
