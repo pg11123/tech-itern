@@ -1,0 +1,6 @@
+[
+  { "id": "potion", "name": "Potion", "type": "consumable", "target": "ally_single", "effect": { "healPctMaxHp": 0.4 } },
+  { "id": "focus_tonic", "name": "Focus Tonic", "type": "consumable", "target": "ally_single", "effect": { "focus": 2 } },
+  { "id": "fire_pepper", "name": "Fire Pepper", "type": "consumable", "target": "ally_single", "effect": { "rage": 50 } },
+  { "id": "revive_feather", "name": "Revive Feather", "type": "consumable", "target": "ally_dead", "effect": { "revivePctMaxHp": 0.3 } }
+]
