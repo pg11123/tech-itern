@@ -30,7 +30,7 @@ export default function MainMenu() {
           </p>
         </header>
 
-        <div className="space-y-4">
+        <div className="stack">
           <button
             onClick={() => navigate(ROUTES.REGISTER)}
             className="w-full border border-green-500/60 bg-green-600 rounded-md px-5 py-4 text-sm font-semibold uppercase tracking-widest transition hover:bg-emerald-500"
@@ -39,8 +39,8 @@ export default function MainMenu() {
           </button>
 
           <button
-            onClick={() => navigate(ROUTES.LOGIN)}
-            className="w-full border border-stone-700 rounded-md px-5 py-4 text-sm font-semibold uppercase tracking-widest transition hover:border-amber-500 hover:text-amber-400"
+            onClick={() => navigate("/login")}
+            className="btn btn-secondary"
           >
             {t("menu.login")}
           </button>
@@ -53,8 +53,8 @@ export default function MainMenu() {
           </button>
         </div>
 
-        <p className="mt-8 text-center text-xs leading-6 text-stone-600">
-          {t("menu.hint")}
+        <p className="panel-footer">
+          Stwórz konto w celu rozpoczęcia swojej przygody
         </p>
 
         <div className="mt-6">

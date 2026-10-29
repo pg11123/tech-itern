@@ -1,5 +1,8 @@
 
+
 import { lazy, Suspense, useEffect } from "react";
+import Form from "./components/Form";
+
 import { Routes, Route } from "react-router";
 import MainMenu from "./components/MainMenu";
 import NotFound from "./components/NotFound";
@@ -32,6 +35,9 @@ export default function App() {
         element={<Suspense fallback={battleFallback}><BattleScreen /></Suspense>}
       />
       <Route path="*" element={<NotFound />} />
+      <Route path="/" element={<MainMenu />} />
+      <Route path="/login" element={<Form />} />
+      <Route path="/register" element={<Form />} />
     </Routes>
   );
 }
