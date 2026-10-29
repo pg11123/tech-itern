@@ -1,87 +1,93 @@
-================================
-Node / React / Vite
-================================
+# ================================
+# Node / React / Vite
+# ================================
 
 frontend/node_modules/
 frontend/dist/
 frontend/.vite/
 
-Environment variables
+# Environment variables
 
 frontend/.env
 frontend/.env.local
 frontend/.env.*.local
 
-Logs
+# Logs
 
 frontend/npm-debug.log*
 frontend/yarn-debug.log*
 frontend/yarn-error.log*
 frontend/pnpm-debug.log*
 
-================================
-Python / FastAPI
-================================
-Virtual environments
+# ================================
+# Python / FastAPI
+# ================================
+
+# Virtual environments
 
 backend/.venv/
 backend/venv/
 backend/env/
 backend/.env/
 
-Python cache
+# Python cache
 
-pycache/
+__pycache__/
 *.py[cod]
 *$py.class
 
-Pytest
+# Local database (SQLite, dev only)
+
+backend/data/game.db
+backend/data/*.db
+
+# Pytest
 
 .pytest_cache/
 
-Coverage
+# Coverage
 
 .coverage
 .coverage.*
 htmlcov/
 
-Type checkers / linters
+# Type checkers / linters
 
 .mypy_cache/
 .pyright/
 .ruff_cache/
 
-================================
-Environment variables
-================================
+# ================================
+# Environment variables
+# ================================
 
 .env
 .env.local
 .env.*.local
 
-================================
-IDE / Editors
-================================
+# ================================
+# IDE / Editors
+# ================================
 
 .vscode/
 .idea/
 
-================================
-Operating system
-================================
+# ================================
+# Operating system
+# ================================
 
 .DS_Store
 Thumbs.db
 
-================================
-Logs
-================================
+# ================================
+# Logs
+# ================================
 
 *.log
 
-================================
-Build / temporary files
-================================
+# ================================
+# Build / temporary files
+# ================================
 
 *.tmp
 *.temp

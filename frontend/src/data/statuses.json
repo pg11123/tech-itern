@@ -1,0 +1,10 @@
+[
+  { "id": "stun", "name": "Stun", "negative": true, "duration": 1, "stacking": "refresh", "skipsTurn": true },
+  { "id": "bleed", "name": "Bleed", "negative": true, "duration": 3, "stacking": "refresh", "dotPctMaxHp": 0.05 },
+  { "id": "shield", "name": "Shield", "negative": false, "duration": 2, "stacking": "refresh", "absorbs": true },
+  { "id": "taunt", "name": "Taunt", "negative": false, "duration": 2, "stacking": "refresh", "taunt": true },
+  { "id": "buffAtk", "name": "Attack Up", "negative": false, "duration": 2, "stacking": "refresh", "mods": { "atk": 1.25, "mag": 1.25 } },
+  { "id": "buffDef", "name": "Defense Up", "negative": false, "duration": 2, "stacking": "refresh", "mods": { "def": 1.25, "res": 1.25 } },
+  { "id": "weak", "name": "Weak", "negative": true, "duration": 2, "stacking": "refresh", "mods": { "atk": 0.75, "mag": 0.75 } },
+  { "id": "defend", "name": "Defend", "negative": false, "duration": 1, "stacking": "refresh", "mods": { "def": 1.5, "res": 1.5 } }
+]
