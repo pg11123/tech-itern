@@ -4,6 +4,7 @@ CREATE TABLE Uzytkownicy (
     uzytkownik_id INT AUTO_INCREMENT PRIMARY KEY,
     nazwa VARCHAR(16) NOT NULL UNIQUE,
     password_hash VARCHAR(255) NOT NULL
+    salt VARCHAR(255) NOT NULL
 );
 CREATE TABLE Wyniki (
   	wynik_id INT AUTO_INCREMENT PRIMARY KEY,
