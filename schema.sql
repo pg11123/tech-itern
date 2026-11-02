@@ -8,7 +8,8 @@ CREATE TABLE Uzytkownicy (
 CREATE TABLE Wyniki (
   	wynik_id INT AUTO_INCREMENT PRIMARY KEY,
     uzytkownik_id INT NOT NULL,
-  	wynik INT NOT NULL,    
+  	wynik INT NOT NULL,   
+    poziom_id INT NOT NULL, 
 	CONSTRAINT fk_uzytkownik FOREIGN KEY (uzytkownik_id) 
     REFERENCES Uzytkownicy(uzytkownik_id)
     ON DELETE CASCADE
