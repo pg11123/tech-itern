@@ -12,16 +12,16 @@ def hashuj(password):
     hashed = hashlib.pbkdf2_hmac('sha256', password_bytes, salt, 600000)
     
     # You MUST store BOTH the salt and the hash in your database
-    return salt, hashed
+    return salt.hex(), hashed.hex()
 def czyPoprawne(stored_salt, stored_hash, password_to_check):
     password_bytes = password_to_check.encode('utf-8')
     
     # Compute the hash using the exact same salt and iteration count
-    new_hash = hashlib.pbkdf2_hmac('sha256', password_bytes, stored_salt, 600000)
+    new_hash = hashlib.pbkdf2_hmac('sha256', password_bytes, bytes.fromhex(stored_salt), 600000)
     
-    # Use hmac.compare_digest to prevent timing attacks
-
-    return hmac.compare_digest(stored_hash, new_hash);
+    # Use hmac.compare_digest to prevent timing attacks 
+    # == niebezpieczne
+    return hmac.compare_digest(bytes.fromhex(stored_hash), new_hash);
 # uzycie:
 #salt, hashed = hashuj("123123")
 #print(czyPoprawne(salt, hashed, "123123 "))
