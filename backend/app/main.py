@@ -32,6 +32,12 @@ class Uzytkownik(Base):
     nazwa = Column(String, unique=True, index=True)
     password_hash = Column(String)
     salt = Column(String)
+class Wynik(Base):
+    __tablename__ = "Wynik"
+    id = Column(Integer, primary_key=True, index=True)
+    uzytkownik_id = Column(Integer, index=True)
+    wynik = Column(Integer, index=True)
+    poziom_id = Column(Integer, unique=True,index=True) 
 
 # Automatyczne tworzenie tabel przy starcie aplikacji
 Base.metadata.create_all(bind=engine)
@@ -70,3 +76,25 @@ def read_user(user_id: int, db: DbSession):
     if user is None:
         raise HTTPException(status_code=404, detail="User not found")
     return user
+@app.post("/wynik/")
+def dodaj_wynik_jesli_najwiekszy(uzytkownik_id: int, wynik: int, poziom_id: int, db: DbSession):
+    # czy wynik jest wiekszy
+    if db.query(Wynik).filter(Wynik.uzytkownik_id == uzytkownik_id and Wynik.poziom_id == poziom_id and Wynik.wynik >= wynik).first():
+        return None
+    #jeśli nie ma większego: usuń i dodaj nowy największy
+    wynik_mniejszy = db.query(Wynik).filter(Wynik.uzytkownik_id == uzytkownik_id and Wynik.poziom_id == poziom_id and Wynik.wynik < wynik).first()
+    if wynik_mniejszy is not None:
+        db.delete(wynik_mniejszy)
+        db.commit()
+    nowy_wynik = Wynik(uzytkownik_id = uzytkownik_id, wynik = wynik, poziom_id = poziom_id)
+    db.add(nowy_wynik)
+    db.commit()
+    db.refresh(nowy_wynik)
+    return nowy_wynik
+@app.get("/wynik/{user_id}{poziom_id}")
+def read_wynik(uzytkownik_id: int, poziom_id: int, db: DbSession):
+    wynik = db.query(Wynik).filter(Wynik.uzytkownik_id == uzytkownik_id and Wynik.poziom_id == poziom_id).first()
+    if wynik is None:
+        raise HTTPException(status_code=404, detail="Poziom nie ukończony")
+    return wynik.wynik
+
