@@ -35,7 +35,6 @@ export default function App() {
         element={<Suspense fallback={battleFallback}><BattleScreen /></Suspense>}
       />
       <Route path="*" element={<NotFound />} />
-      <Route path="/" element={<MainMenu />} />
       <Route path="/login" element={<Form />} />
       <Route path="/register" element={<Form />} />
     </Routes>

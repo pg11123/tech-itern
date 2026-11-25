@@ -11,8 +11,8 @@ export default function MainMenu() {
   const t = useT();
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-[#090a0e] px-4 text-stone-200">
-      <div className="w-full max-w-md border border-white/10 rounded-md bg-[#101015] p-8 shadow-2xl">
+    <main className="page">
+      <div className="panel">
         <header className="mb-10 text-center">
           <p className="mb-4 text-xs tracking-[0.4em] text-amber-500">
             {t("menu.tagline")}
@@ -33,17 +33,19 @@ export default function MainMenu() {
         <div className="stack">
           <button
             onClick={() => navigate(ROUTES.REGISTER)}
-            className="w-full border border-green-500/60 bg-green-600 rounded-md px-5 py-4 text-sm font-semibold uppercase tracking-widest transition hover:bg-emerald-500"
+            className="w-full border border-green-500/60 bg-green-600 rounded-md px-5 py-4 text-sm font-semibold uppercase tracking-widest transition hover:bg-emerald-700"
           >
             {t("menu.register")}
           </button>
 
           <button
-            onClick={() => navigate("/login")}
-            className="btn btn-secondary"
+            onClick={() => navigate(ROUTES.LOGIN)}
+            className="w-full border border-cyan-500/60 bg-cyan-600 rounded-md px-5 py-4 text-sm font-semibold uppercase tracking-widest transition hover:bg-sky-700"
           >
             {t("menu.login")}
           </button>
+
+          
 
           <button
             onClick={() => navigate(battlePath(SANDBOX_STAGE_ID))}
@@ -54,7 +56,7 @@ export default function MainMenu() {
         </div>
 
         <p className="panel-footer">
-          Stwórz konto w celu rozpoczęcia swojej przygody
+          {t("menu.hint")}
         </p>
 
         <div className="mt-6">
