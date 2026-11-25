@@ -2,10 +2,13 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { Eye, EyeOff } from "lucide-react";
+import { useT } from "../i18n/useT";
 
 export default function Form() {
   const isRegister = useLocation().pathname === "/register";
   const navigate = useNavigate();
+
+  const t = useT();
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -53,13 +56,13 @@ export default function Form() {
     <main className="page">
       <section className="panel">
         <h1 className="mb-2 text-center text-3xl font-bold">
-          {isRegister ? "Stwórz konto" : "Witaj ponownie"}
+          {isRegister ? t("menu.register") : t("form.login")}
         </h1>
 
         <p className="mb-8 text-center text-slate-400">
           {isRegister
-            ? "Dołącz do świata gry."
-            : "Zaloguj się i kontynuuj przygodę."}
+            ? t("registerSubtitle")
+            : t("loginSubtitle")}
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-5">
@@ -77,7 +80,7 @@ export default function Form() {
               htmlFor="username"
               className="mb-2 block text-sm font-medium"
             >
-              Nazwa gracza
+              {t("username")}
             </label>
 
             <input
@@ -90,7 +93,7 @@ export default function Form() {
               maxLength={24}
               required
               className="w-full rounded-lg border border-slate-700 bg-slate-950 px-4 py-3 outline-none focus:border-violet-500"
-              placeholder="Wpisz nazwę gracza"
+              placeholder={t("usernamePlaceholder")}
             />
           </div>
 
@@ -99,7 +102,7 @@ export default function Form() {
               htmlFor="password"
               className="mb-2 block text-sm font-medium"
             >
-              Hasło
+              {t("password")}
             </label>
             <div className="relative">
               <input
@@ -111,7 +114,7 @@ export default function Form() {
                 minLength={isRegister ? 8 : undefined}
                 required
                 className="w-full rounded-lg border border-slate-700 bg-slate-950 px-4 py-3 outline-none focus:border-violet-500"
-                placeholder="Wpisz hasło"
+                placeholder={t("passwordPlaceholder")}
               />
 
               <button
@@ -130,20 +133,20 @@ export default function Form() {
             className="btn btn-primary"
           >
             {loading
-              ? "Chwileczkę..."
+              ? t("loading")
               : isRegister
-                ? "Zarejestruj się"
-                : "Zaloguj się"}
+                ? t("menu.register")
+                : t("menu.login")}
           </button>
         </form>
 
         <p className="mt-6 text-center text-sm text-slate-400">
-          {isRegister ? "Masz już konto?" : "Nie masz jeszcze konta?"}{" "}
+          {isRegister ? t("haveAccount") : t("noAccount")}{" "}
           <Link
             to={isRegister ? "/login" : "/register"}
             className="font-semibold text-violet-400 hover:text-violet-300"
           >
-            {isRegister ? "Zaloguj się" : "Zarejestruj się"}
+            {isRegister ? t("menu.register") : t("menu.login")}
           </Link>
         </p>
       </section>

@@ -10,6 +10,22 @@ export default {
   'menu.subtitle': 'The world awaits your story.',
   'menu.register': 'Create account',
   'menu.login': 'Log in',
+  'form.login': 'Welcome back',
+
+    
+    
+  "registerSubtitle": "Join the world of gaming.",
+  "loginSubtitle": "Log in and continue your adventure.",
+  "username": "Player name",
+  "usernamePlaceholder": "Enter your player name",
+  "password": "Password",
+  "passwordPlaceholder": "Enter your password",
+  "loading": "Please wait...",
+  "haveAccount": "Already have an account?",
+  "noAccount": "Don't have an account yet?",
+  "error": "Something went wrong.",
+  "connectionError": "Could not connect to the server.",
+
   'menu.sandbox': 'Battle sandbox',
   'menu.hint': 'Create an account to start your adventure',
 
