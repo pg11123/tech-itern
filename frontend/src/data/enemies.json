@@ -1,0 +1,73 @@
+[
+  {
+    "id": "grunt",
+    "name": "Grunt",
+    "tier": "minion",
+    "stats": { "hp": 60, "atk": 10, "mag": 0, "def": 6, "res": 4, "spd": 6 },
+    "attack": "attack",
+    "skills": ["club_smash"],
+    "ai": "aggressive",
+    "sprite": "enemy_grunt",
+    "loot": [],
+    "xp": 20,
+    "coins": 8
+  },
+  {
+    "id": "slinger",
+    "name": "Slinger",
+    "tier": "minion",
+    "stats": { "hp": 45, "atk": 12, "mag": 0, "def": 3, "res": 4, "spd": 9 },
+    "attack": "attack",
+    "skills": ["pebble_spray", "sling_shot"],
+    "ai": "focusHealer",
+    "sprite": "enemy_slinger",
+    "loot": [],
+    "xp": 22,
+    "coins": 9
+  },
+  {
+    "id": "shaman",
+    "name": "Shaman",
+    "tier": "minion",
+    "stats": { "hp": 50, "atk": 4, "mag": 11, "def": 4, "res": 9, "spd": 7 },
+    "attack": "attack_magic",
+    "skills": ["pig_mend", "war_drum"],
+    "ai": "random",
+    "sprite": "enemy_shaman",
+    "loot": [],
+    "xp": 24,
+    "coins": 10
+  },
+  {
+    "id": "brute",
+    "name": "Brute",
+    "tier": "elite",
+    "stats": { "hp": 140, "atk": 16, "mag": 0, "def": 12, "res": 6, "spd": 4 },
+    "attack": "attack",
+    "skills": ["skull_crack"],
+    "ai": "aggressive",
+    "sprite": "enemy_brute",
+    "loot": [],
+    "xp": 55,
+    "coins": 25
+  },
+  {
+    "id": "chieftain",
+    "name": "Chieftain",
+    "tier": "boss",
+    "stats": { "hp": 420, "atk": 18, "mag": 10, "def": 14, "res": 10, "spd": 7 },
+    "attack": "attack",
+    "skills": ["royal_strike", "war_cry", "royal_quake"],
+    "script": {
+      "phases": [
+        { "rotation": ["royal_strike", "attack", "war_cry"] },
+        { "atHpPct": 0.5, "rotation": ["royal_quake", "royal_strike", "attack"] }
+      ]
+    },
+    "ai": "bossScript",
+    "sprite": "enemy_chieftain",
+    "loot": [],
+    "xp": 150,
+    "coins": 80
+  }
+]
